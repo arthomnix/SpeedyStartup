@@ -34,11 +34,8 @@ public static class GameManagerPatch
 
     [HarmonyPatch("OnLoadingFinished")]
     [HarmonyPostfix]
-    private static void OnLoadingFinishedPostfix()
-    {
-        LoadingScreenShouldBeVisible = false;
-    }
-    
+    private static void OnLoadingFinishedPostfix() => LoadingScreenShouldBeVisible = false;
+
     private static void SetLoadingBarVisibilityOnly(this UIManager ui, bool visibility, Action resolve) => 
         ui.SetLoadingBarAndCurtainVisibility(false, visibility, resolve);
     
