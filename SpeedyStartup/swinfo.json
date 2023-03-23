@@ -1,0 +1,22 @@
+{
+  "mod_id": "SpeedyStartup",
+  "author": "arthomnix",
+  "name": "Speedy Startup",
+  "description": "Speed up the game's startup by loading during the logo splash screens",
+  "source": "https://github.com/arthomnix/SpeedyStartup",
+  "version": "0.1.0",
+  "version_check": "",
+  "dependencies": [
+    {
+      "id":  "SpaceWarp",
+      "version": {
+        "min": "1.0.0",
+        "max": "*"
+      }
+    }
+  ],
+  "ksp2_version": {
+    "min": "0.1.0",
+    "max": "*"
+  }
+}
