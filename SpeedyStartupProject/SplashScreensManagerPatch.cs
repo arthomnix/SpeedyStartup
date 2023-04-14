@@ -1,5 +1,6 @@
 using HarmonyLib;
 using KSP.Game;
+using KSP.Game.StartupFlow;
 
 namespace SpeedyStartup;
 
@@ -19,6 +20,13 @@ public class SplashScreensManagerPatch
         
         if (GameManagerPatch.LoadingScreenShouldBeVisible)
             GameManager.Instance.Game.UI.SetLoadingBarVisibility(true);
+
+        if (LandingHUDPatch.ShouldShowLegalTexts)
+        {
+            var legal = GameManager.Instance.Game.UI.Get<LandingHUD>().LegalMenu;
+            legal.gameObject.SetActive(true);
+            legal.StartupFlow();
+        }
         
         return false;
     }

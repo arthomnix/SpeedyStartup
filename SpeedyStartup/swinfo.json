@@ -4,7 +4,7 @@
   "name": "Speedy Startup",
   "description": "Speed up the game's startup by loading during the logo splash screens",
   "source": "https://github.com/arthomnix/SpeedyStartup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "version_check": "",
   "dependencies": [
     {
@@ -16,7 +16,7 @@
     }
   ],
   "ksp2_version": {
-    "min": "0.1.0",
+    "min": "0.1.2",
     "max": "*"
   }
 }
