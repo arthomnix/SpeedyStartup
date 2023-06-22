@@ -7,17 +7,20 @@ namespace SpeedyStartup;
 [HarmonyPatch(typeof(SplashScreensManager))]
 public class SplashScreensManagerPatch
 {
+    // ReSharper disable once InconsistentNaming
     [HarmonyPatch("StartAnimations")]
     [HarmonyPrefix]
-    private static void StartAnimationsPrefix(Action resolve) => resolve();
+    private static void StartAnimationsPrefix(SplashScreensManager __instance)
+    {
+        __instance._resolvedCalled = true;
+        __instance._resolveAction();
+    }
 
     // ReSharper disable once InconsistentNaming
     [HarmonyPatch("ResolveSplashScreens")]
     [HarmonyPrefix]
-    private static bool ResolveSplashScreensPrefix(SplashScreensManager __instance)
+    private static void ResolveSplashScreensPrefix(SplashScreensManager __instance)
     {
-        __instance.gameObject.SetActive(false);
-        
         if (GameManagerPatch.LoadingScreenShouldBeVisible)
             GameManager.Instance.Game.UI.SetLoadingBarVisibility(true);
 
@@ -27,7 +30,5 @@ public class SplashScreensManagerPatch
             legal.gameObject.SetActive(true);
             legal.StartupFlow();
         }
-        
-        return false;
     }
 }
